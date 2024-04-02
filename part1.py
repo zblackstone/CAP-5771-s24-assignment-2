@@ -115,16 +115,15 @@ def compute():
     # dct value: return a dictionary of one or more abbreviated dataset names (zero or more elements) 
     # and associated k-values with correct clusters.  key abbreviations: 'nc', 'nm', 'bvv', 'add', 'b'. 
     # The values are the list of k for which there is success. Only return datasets where the list of cluster size k is non-empty.
-    answers = ["1C: cluster failures"] = ["nc",
-                                          "nm"]
+    answers = ["1C: cluster failures"] = ["nc", "nm"]
 
     
     dct = answers["1C: cluster successes"] = {"bvv": [3],
                                               "add": [3],
                                               "b": [3]} 
-
     # dct value: return a list of 0 or more dataset abbreviations (list has zero or more elements, 
     # which are abbreviated dataset names as strings)
+    dct = answers["1C: cluster failures"] = ["nc", "nm"]
     
     """
     D. Repeat 1.C a few times and comment on which (if any) datasets seem to be sensitive to the choice of initialization for the k=2,3 cases. You do not need to add the additional plots to your report.
