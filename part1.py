@@ -70,7 +70,7 @@ def compute():
         }
     
     for key in datasets.keys():
-            datasets[key] = (StandardScaler().fit_transform(datasets[key][0], datasets[key][1]
+            datasets[key] = (StandardScaler().fit_transform(datasets[key][0]), datasets[key][1])
     
     # Organizing datasets in a dictionary as specified
 
