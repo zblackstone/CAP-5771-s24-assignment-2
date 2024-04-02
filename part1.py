@@ -4,13 +4,16 @@ import warnings
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import cluster, datasets, mixture
-from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
 from sklearn.neighbors import kneighbors_graph
 from sklearn.preprocessing import StandardScaler
 from itertools import cycle, islice
 import scipy.io as io
 from scipy.cluster.hierarchy import dendrogram, linkage  #
+
+from sklearn.datasets import make_moons, make_circles, make_blobs
+from sklearn.cluster import KMeans
+
 
 # import plotly.figure_factory as ff
 import math
