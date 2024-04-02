@@ -28,8 +28,13 @@ In this task, you will explore hierarchical clustering over different datasets. 
 # Change the arguments and return according to 
 # the question asked. 
 
-def fit_hierarchical_cluster():
-    return None
+def fit_hierarchical_cluster(dataset, linkage, n_clusters):
+    data, _ = dataset
+    scaler = StandardScaler()
+    data_scaled = scaler.fit_transform(data)
+    model = AgglomerativeClustering(n_clusters= n_clusters, linkage= linkage)
+    labels = model.fit_predict(data_scaled)
+    return labels
 
 def fit_modified(dataset):
     data, _ = dataset
@@ -116,7 +121,7 @@ def compute():
     plt.show()
 
     # dct is the function described above in 4.C
-    dct = answers["4A: modified function"] = fit_modified
+    dct = answers["4C: modified function"] = fit_modified
 
     return answers
 
