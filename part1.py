@@ -61,16 +61,21 @@ def compute():
     transformation = [[0.6, -0.6], [-0.4, 0.8]]
     X_aniso = np.dot(X, transformation)
     aniso = (X_aniso, y)
+
+    datasets = {
+        "nc": noisy_circles,
+        "nm": noisy_moons,
+        "bvv": varied,
+        "add": aniso,
+        "b": blobs
+        }
+    
+    for key in datasets.keys():
+            datasets[key] = (StandardScaler().fit_transform(datasets[key][0], datasets[key][1]
     
     # Organizing datasets in a dictionary as specified
-    answers["1A: datasets"] = {
-        "nc": [StandardScaler().fit_transform(noisy_circles[0]), noisy_circles[1]],  # Noisy Circles
-        "nm": [StandardScaler().fit_transform(noisy_moons[0]), noisy_moons[1]],  # Noisy Moons
-        "bvv": [StandardScaler().fit_transform(varied[0]), varied[1]],  # Blobs with varied variances
-        "add": [StandardScaler().fit_transform(aniso[0]), aniso[1]],  # Anisotropicly distributed data
-        "b": [StandardScaler().fit_transform(blobs[0]), blobs[1]]  # Blobs
 
-    dct = answers["1A: datasets"] = {}
+    dct = answers["1A: datasets"] = datasets
 
     """
    B. Write a function called fit_kmeans that takes dataset (before any processing on it), i.e., pair of (data, label) Numpy arrays, and the number of clusters as arguments, and returns the predicted labels from k-means clustering. Use the init='random' argument and make sure to standardize the data (see StandardScaler transform), prior to fitting the KMeans estimator. This is the function you will use in the following questions. 
