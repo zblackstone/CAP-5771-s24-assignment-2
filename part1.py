@@ -57,10 +57,9 @@ def compute():
     varied = datasets.make_blobs(n_samples=100, cluster_std=[1.0, 2.5, 0.5], random_state=42)
     
     # Generate Anisotropicly distributed data
-    X, y = datasets.make_blobs(n_samples=100, random_state=42)
     transformation = [[0.6, -0.6], [-0.4, 0.8]]
-    X_aniso = np.dot(X, transformation)
-    aniso = (X_aniso, y)
+    X_aniso = np.dot(blobs[0], transformation)
+    aniso = (X_aniso, blobs[1])
 
     datasets = {
         "nc": noisy_circles,
